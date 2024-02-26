@@ -25,19 +25,53 @@ Methods:
     Note that this method doesn't need object itself
 PEP8 comply strictly.
 """
-import datetime
-
-
-class Teacher:
-    ...
-
-
-class Student:
-    ...
+import datetime 
+from datetime import date
 
 
 class Homework:
-    ...
+    def __init__(self, task, deadline,created):
+        self.task = task
+        self.deadline = deadline
+        self.created=created
+    def is_active(self):
+        date_now=datetime.datetime.now()
+        if((date_now-self.deadline)==0):
+            print( "Task closed")
+        else:
+            print("Task Active")
+        
+    
+class Teacher:
+    def __init__(self, last_name, first_name):
+        self.last_name = last_name
+        self.first_name = first_name
+    def create_homework(self,task_text,days_to_complete):
+        created_date=datetime.datetime.now()
+        deadline=created_date+datetime.timedelta(days=days_to_complete)
+        return Homework(task_text,created_date,deadline)
+  
+
+class Student:
+     def __init__(self, task, deadline,created, last_name, first_name):
+        self.last_name = last_name
+        self.first_name = first_name
+        Homework.__init__(self, task, deadline,created)
+
+     def do_homework(homework):
+       if homework.is_active():
+           print(f'Doing Homework')
+       else:
+           print("you are late")    
+
+            
+    
+
+    
+            
+
+
+
 
 
 if __name__ == '__main__':
