@@ -16,6 +16,7 @@ def calculate_power_with_difference(list1):
             new_list[i]=list1[i]**2
         else:
             new_list[i]=list1[i]**2-((list1[i-1]**2)-list1[i-1])
-    print(new_list)    
-calculate_power_with_difference([1, 2, 3])    
+    print(new_list)  
+
+calculate_power_with_difference([1, 2, 3])
     

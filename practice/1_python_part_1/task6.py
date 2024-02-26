@@ -18,7 +18,7 @@ with open(filename) as opened_file:
 """
 from typing import Tuple
 
-
+ 
 def readFile(filename):
     tuple1=()
     list1=[]
