@@ -34,7 +34,8 @@ class Homework:
         self.task = task
         self.deadline = deadline
         self.created=created
-    def is_active(self):
+    def is_active(self): 
+        
         date_now=datetime.datetime.now()
         if((date_now-self.deadline)==0):
             print( "Task closed")
