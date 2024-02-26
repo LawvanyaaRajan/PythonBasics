@@ -19,6 +19,14 @@ with open(filename) as opened_file:
 from typing import Tuple
 
 
-def get_min_max(filename: str) -> Tuple[int, int]:
-    ...
-
+def readFile(filename):
+    tuple1=()
+    list1=[]
+    with open(r'C:\Users\lrajan\Desktop\project\PythonBasics\practice\1_python_part_1\filename.txt') as opened_file:
+        for line in opened_file:
+            list1.append(int(line))
+        minn=min(list1)
+        maxx=max(list1)
+        tuple1=(minn,maxx)        
+        print(tuple1)    
+readFile('filename')    

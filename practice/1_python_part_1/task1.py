@@ -14,5 +14,13 @@ Examples:
 from typing import List, Any
 
 
-def delete_from_list(list_to_clean: List, item_to_delete: Any) -> List:
-    ...
+def delete_from_list(list1,element):
+    i=0
+    while i<len(list1):
+        if(list1[i]==element):
+            list1.pop(i)
+            i=i-1
+        else:
+            i=i+1
+    print(list1)        
+delete_from_list([1, 2, 3, 4, 3],3)    

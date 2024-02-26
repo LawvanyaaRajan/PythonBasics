@@ -14,6 +14,23 @@ Examples:
 """
 from typing import Iterable
 
+def build_from_unique_words(*lines,word_number):
+  new_str=''
+  unique=''
+  line=0
+  for each in lines:
+      count=0
+      for i in each.split(" "):
+          if((line==0 and isinstance(i, str)) or line==1 or line==2):
+            if(unique==i):
+              continue  
+            else:
+               if count==word_number:
+                  new_str+=i+" "
+          count+=1
+          unique=i
+      line+=1      
+  print(new_str)          
+build_from_unique_words('a b c', '1 1 1 2 3', 'cat dog milk',word_number=1) 
 
-def build_from_unique_words(*lines: Iterable[str], word_number: int) -> str:
-    ...
+

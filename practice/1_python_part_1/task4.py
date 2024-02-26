@@ -9,5 +9,13 @@ Examples:
 from typing import List
 
 
-def calculate_power_with_difference(ints: List[int]) -> List[int]:
-    ...
+def calculate_power_with_difference(list1):
+    new_list=[1]*3
+    for i in range(len(list1)):
+        if(i==0):
+            new_list[i]=list1[i]**2
+        else:
+            new_list[i]=list1[i]**2-((list1[i-1]**2)-list1[i-1])
+    print(new_list)    
+calculate_power_with_difference([1, 2, 3])    
+    

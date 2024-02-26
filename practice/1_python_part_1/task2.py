@@ -12,5 +12,14 @@ Examples:
 from typing import Dict
 
 
-def set_to_dict(dict_to_update: Dict[str, int], **items_to_set) -> Dict:
-    ...
+def set_to_dict(dict1,**keyword):
+    for i in keyword:
+        if i in dict1.keys():
+            new_value=keyword[i]
+            old_value=dict1[i]
+            if(new_value>old_value):
+                dict1[i]=keyword[i]
+        else:
+            dict1[i]=keyword[i]
+    print(dict1) 
+set_to_dict({'a': 1, 'b': 2, 'c': 3}, a=0, b=4)  
