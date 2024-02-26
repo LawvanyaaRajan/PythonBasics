@@ -22,3 +22,18 @@ def generate_words(n=20):
         words.append(word)
 
     return words
+
+file=open(r"C:\Users\lrajan\Desktop\project\PythonBasics\practice\2_python_part_2\files\file_seperator.txt", 'w', encoding="utf-8")
+file.write('\n'.join(generate_words(3)))
+        
+file.close()
+file=open(r"C:\Users\lrajan\Desktop\project\PythonBasics\practice\2_python_part_2\files\file_seperator.txt", 'r', encoding="utf-8")
+print(file.read())    
+
+file=open(r"C:\Users\lrajan\Desktop\project\PythonBasics\practice\2_python_part_2\files\file_seperator1.txt", 'w', encoding="CP1252")
+file.write(','.join(generate_words(3)))
+        
+file.close()
+file=open(r"C:\Users\lrajan\Desktop\project\PythonBasics\practice\2_python_part_2\files\file_seperator1.txt", 'r', encoding="CP1252")
+
+print(file.read())  

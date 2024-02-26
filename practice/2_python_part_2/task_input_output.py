@@ -17,7 +17,22 @@ Examples:
 """
 
 
-def read_numbers(n: int) -> str:
-    ...
+def read_numbers(*args):
+    count=0
+    sum=0
+    avg=0
+    for i in args:
+        if(isinstance(i,int)):
+            count+=1
+            sum+=i
+        if(count==0):
+            print("No numbers entered") 
+            return  
+    avg=float(sum/count)    
+    print(format(avg,".2f"))
+read_numbers(1, 2, 'hello', 2, 'world')        
+
+
+
 
 
