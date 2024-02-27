@@ -15,18 +15,15 @@ Example:
 """
 
 import argparse
-
+import Faker
 
 def print_name_address(args: argparse.Namespace) -> None:
-    ...
+    fake=Faker()
+    for _ in range(args.number):
+        data={}
+        for input,provider in args.field.items():
+            data[input]=getattr(fake,provider)()
 
-
-"""
-Write test for print_name_address function
-Use Mock for mocking args argument https://docs.python.org/3/library/unittest.mock.html#unittest.mock.Mock
-Example:
-    >>> m = Mock()
-    >>> m.method.return_value = 123
-    >>> m.method()
-    123
-"""
+        print(data)
+fake_argument=argparse.Namespace(number=2,fields={'fake_address':'address','some_name':'name'})
+print_name_address(fake_argument)
