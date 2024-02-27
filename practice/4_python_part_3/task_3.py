@@ -12,10 +12,10 @@ Note that address may have several domain levels
 import re
 
 
-def is_http_domain(domain: str) -> bool:
-    ...
-
-
-"""
-write tests for is_http_domain function
-"""
+def is_http_domain(input):
+    pattern=r'^https?://'
+    if re.match(pattern,input):
+        print("True")
+    else:
+        print("False")
+is_http_domain('http://wikipedia.org')

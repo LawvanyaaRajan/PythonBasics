@@ -11,14 +11,25 @@ If entered date is from future, return negative value for number of days
     WrongFormatException
 """
 from datetime import datetime
+import time
+
+class InvalidDate(Exception):
+    pass
 
 
-def calculate_days(from_date: str) -> int:
-    ...
-
-
-"""
-Write tests for calculate_days function
-Note that all tests should pass regardless of the day test was run
-Tip: for mocking datetime.now() use https://pypi.org/project/pytest-freezegun/
-"""
+def calculate_days(input_date):
+    try:
+        dt = datetime.strptime(input_date, "%Y-%m-%d")
+        input = dt.date()
+    except:
+        raise InvalidDate("WrongFormatException")   
+    
+    today_date=datetime.now().date()
+    if input>today_date:
+        diff=input-today_date
+    else:
+        diff=today_date-input
+    return diff
+input_date=input("Enter the date")
+difference=calculate_days(input_date)
+print(difference)  

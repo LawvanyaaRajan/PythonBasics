@@ -10,12 +10,29 @@ Examples:
      11
 """
 import math
+class OperationNotFoundException(Exception):
+    pass
 
-
-def math_calculate(function: str, *args):
-    ...
-
-
-"""
-Write tests for math_calculate function
-"""
+def math_calculate(function,*args):
+    if function=='sqrt':
+        if len(*args)==1:
+            print(math.sqrt(args[0]))
+        else:
+            raise OperationNotFoundException("Argument does not match with the math function")  
+    if function=='pow':
+        print(len(args))
+        if len(args)==2:
+            print(math.pow(*args))
+        else:
+            raise OperationNotFoundException("Argument does not match with the math function") 
+    if function=='log10':
+        if len(*args)==1:
+            print(math.log10(args[0]))
+        else:
+            raise OperationNotFoundException("Argument does not match with the math function")
+    if function=='ceil':
+        if len(*args)==1:
+            print(math.ceil(args[0]))
+        else:
+            raise OperationNotFoundException("Argument does not match with the math function")               
+math_calculate('pow', 2,2)     
